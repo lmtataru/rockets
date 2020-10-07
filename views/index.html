@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Rockets Exercise</title>
+</head>
+
+<body>
+	<h2 class="text-center py-5"> Rockets </h2>
+	<div class="justify-content-center text-center">
+		<button type="button" class="btn btn-primary" id="id_rocket_0" onclick="checkButton(this.id)"> Create rocket 1 </button>
+		<button type="button" class="btn btn-primary" id="id_rocket_1" onclick="checkButton(this.id)"> Create rocket 2 </button>
+	</div>
+
+	<div class="justify-content-center text-center py-3">
+		<button type="button" class="btn btn-primary px-2" id="accelerate_0" onclick="accelerateRocket(this.id)"> Accelerate rocket 1 </button>
+		<button type="button" class="btn btn-primary px-2" id="accelerate_1" onclick="accelerateRocket(this.id)"> Accelerate rocket 2 </button>
+	</div>
+
+	<div class="justify-content-center text-center">
+		<button type="button" class="btn btn-primary px-2" id="break_0" onclick="breakRocket(this.id)"> Break rocket 1 </button>
+		<button type="button" class="btn btn-primary px-2" id="break_1" onclick="breakRocket(this.id)"> Break rocket 2 </button>
+	</div>
+
+	<div class="justify-content-center text-center pt-3">
+		<button type="button" class="btn btn-primary px-2" id="print_info_0" onclick="printRocketInfo(this.id)"> Print rocket 1 info </button>
+		<button type="button" class="btn btn-primary px-2" id="print_info_1" onclick="printRocketInfo(this.id)"> Print rocket 2 info </button>
+		<button type="button" class="btn btn-primary" id="print_all_info" onclick="printAllRocketsInfo()"> Print all rockets </button>
+	</div>
+
+	<div id="show_data" class="text-center py-3"></div>
+	<!-- Modal -->
+	<div class="modal" id="modal_rocket" style="overflow-y: auto;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rocket_title">Create rocket</h5>
+					<button type="button" class="close" onclick="closeModal()" aria-label="Close"> <span  aria-hidden="true">&times;</span> </button>
+				</div>
+				<div class="modal-body">
+					<!-- form -->
+					<form class="form-row justify-content-center pt-3" name="form_for_rockets" id="rocket_form" method="post" action="">
+						<div class="form-group mb-2">
+							<label for="code" class="h4"> Rocket Code </label>
+							<input type="text" class="form-control form-control-lg" id="rocket_code" name="code_for_rocket">
+							<div id="code_error" class="invalid-feedback"></div>
+						</div>
+						<div class="form-group mb-2">
+							<label for="thrusters" class="h4"> Nr of Thrusters </label>
+							<input type="number" class="form-control form-control-lg" id="nr_thrusters" name="number_of_thrusters" min="0" oninput="createInput()">
+							<div id="thrusters_error" class="invalid-feedback"></div>
+						</div>
+						<div class="form-group mb-2" id="input_thruster"> </div>
+						<div class="w-100"></div>
+						<button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+						<button type="submit" class="btn btn-primary">Launch</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Optional JavaScript -->
+	<script src="../controllers/controller.js" type="text/javascript"></script>
+	<script src="../models/rocket.js" type="text/javascript"></script>
+	<script src="../models/thruster.js" type="text/javascript"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
