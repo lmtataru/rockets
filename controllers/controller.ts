@@ -155,9 +155,10 @@ function printRocketInfo(id: string) {
 	let id_info_button: number = getNrFromID(id);
 	let show_data: HTMLElement = (document.getElementById("show_data") as HTMLElement);
 	if (rocket_list[id_info_button]) {
-		show_data.innerHTML = "Rocket " + rocket_list[id_info_button].code + " boosters max power: ";
+		show_data.innerHTML = "Rocket " + rocket_list[id_info_button].code + " boosters:  ";
 		for (let i: number = 0; i < rocket_list[id_info_button].nr_of_thrusters; i++) {
-			show_data.innerHTML += rocket_list[id_info_button].thrusters[i].max_power + ", ";
+			show_data.innerHTML += "<br>" + "Booster " + (i+1) + ": current power: " + rocket_list[id_info_button].thrusters[i].current_power + ", " +
+								   " max power: " + rocket_list[id_info_button].thrusters[i].max_power + "; ";
 		}
 		show_data.innerHTML = show_data.innerHTML.slice(0, -2);
 	} else {
@@ -188,6 +189,7 @@ function accelerateRocket(id: string){
 	let id_accelerate: number = getNrFromID(id);
 	if (rocket_list[id_accelerate]){
 		rocket_list[id_accelerate].accelerate_rocket();
+		printRocketInfo(id);
 	}
 }
 
@@ -195,5 +197,6 @@ function breakRocket(id: string){
 	let id_break: number = getNrFromID(id);
 	if (rocket_list[id_break]) {
 		rocket_list[id_break].break_rocket();
+		printRocketInfo(id);
 	}
 }
