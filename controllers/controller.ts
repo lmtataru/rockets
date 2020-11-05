@@ -172,9 +172,10 @@ function printAllRocketsInfo() {
 	if (rocket_list.length > 0) {
 		for (let i: number = 0; i < rocket_list.length; i++) {
 			if (rocket_list[i]) {
-				show_data.innerHTML += "Rocket " + rocket_list[i].code + " boosters max power: ";
+				show_data.innerHTML += "Rocket " + rocket_list[i].code + " boosters: ";
 				for (let j: number = 0; j < rocket_list[i].nr_of_thrusters; j++) {
-					show_data.innerHTML += rocket_list[i].thrusters[j].max_power + ", ";
+					show_data.innerHTML += "<br>" + "Booster " + (j + 1) + ": current power: " + rocket_list[i].thrusters[j].current_power + ", " +
+					" max power: " + rocket_list[i].thrusters[j].max_power + "; ";
 				}
 				show_data.innerHTML = show_data.innerHTML.slice(0, -2);
 				show_data.innerHTML += "<br>";
